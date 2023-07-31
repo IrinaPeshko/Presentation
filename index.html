@@ -1,40 +1,305 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!DOCTYPE html>
+<html>
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<title>Audio and Video APIs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.1.0/dist/reset.css">
+	<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.1.0/dist/reveal.css">
+	<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.1.0/dist/theme/league.css">
+</head>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!-- Slide 1 - Introduction -->
+			<section>
+				<h1>Audio and video APIs</h1>
+				<p class="name">Irina Peshko </p>
+			</section>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+			<!-- Slide 2 - Definition of API -->
+			<section>
+				<section>
+				<h2>What is an API?</h2>
+				</section>
+				<section>
+				<p>API stands for Application Programming Interface. Essentially, it is a set of conventions that define how
+					software components interact. An API provides rules for accessing specific functionality.</p>
+					</section>
+			</section>
+
+			<!-- Slide 3 - Basics of Audio and Video APIs -->
+			<section>
+				<h2>Basics of Audio and Video APIs</h2>
+				<p>When we talk about audio and video APIs in the context of web development, we usually refer to HTML5 APIs,
+					which allow us to integrate audio and video elements into our web applications.</p>
+			</section>
+
+			<!-- Slide 4 - HTML Audio and Video Elements -->
+			<section>
+				<section>
+					<h2>HTML Audio and Video Elements</h2>
+					<p>The &lt;video&gt; and &lt;audio&gt; elements are used to embed video and audio into web pages. </p>
+				</section>
+
+				<!-- Subslide 4.1 - Example of video implementation -->
+				<section>
+					<h3>Example of video implementation</h3>
+					<img src="./img/image_2023-07-31_09-50-25.png" alt="">
+
+				</section>
+
+				<!-- Subslide 4.2 - Example of audio implementation -->
+				<section>
+					<h3>Example of audio implementation</h3>
+					<img src="./img/make-same-player-all-browsers-js-control-css-styling-audio-tag-controls.jpg" alt="">
+				</section>
+			</section>
+
+			<!-- Slide 5 - API Overview -->
+			<section>
+				<section>
+					<h2>API Overview</h2>
+					<p>These APIs include HTMLMediaElement, Web Audio API, and MediaStream API.</p>
+				</section>
+
+			
+			<!-- Subslide 5.1 - HTMLMediaElement API -->
+			<section>
+				<h3>HTMLMediaElement API</h3>
+				<p>The HTMLMediaElement API provides functionality for programmatically
+					controlling video and audio players, such as `HTMLMediaElement.play()` and `HTMLMediaElement.pause()`. This
+					interface works with both `<audio>` and `<video>` elements.</p>
+			</section>
+			
+			<!-- Subslide 5.2 - Web Audio API -->
+			<section>
+				<h3>Web Audio API</h3>
+				<p>The Web Audio API is a high-level API that allows audio processing and synthesis in web applications. It is used
+					for creating spatial effects, audio mixing, and composing music.</p>
+			</section>
+			
+			<!-- Subslide 5.3 - MediaStream API -->
+			<section>
+				<h3>MediaStream API</h3>
+				<p>The MediaStream API enables handling data streams, such as video and audio obtained from the user's camera or
+					microphone. This API serves as the foundation for processing video or audio on the web.</p>
+			</section>
+		</section>
+
+			<!-- Slide 6 - Practical Application -->
+			<section>
+				<h2>Practical Application</h2>
+			
+				<!-- Subslide 6.1 - HTMLMediaElement API Code Example -->
+				<section>
+					<h3>Video API</h3>
+					<img src="./img/video.png" alt="video-code">
+				</section>
+			
+				<!-- Subslide 6.2 - Code Example Using HTMLMediaElement API -->
+				<section>
+					<h3>Audio API</h3>
+					<img src="./img/audio.png" alt="simple audio">
+				</section>
+			</section>
+			
+			<!-- Slide 7 - Play and Pause for Audio or Video -->
+			<section>
+				<h2>Play and Pause for Audio or Video</h2>
+			
+				<!-- Subslide 7.1 - Play/Pause Button Event Listener -->
+				<section>
+					<h3>Play/Pause Button Event Listener</h3>
+					<pre><code data-trim data-noescape class="hljs javascript">
+play.addEventListener("click", playPauseMedia);
+			          </code></pre>
+				</section>
+			
+				<!-- Subslide 7.2 - Play/Pause Button Function -->
+				<section>
+					<h3>Play/Pause Button Function</h3>
+					<pre><code data-trim data-noescape class="hljs javascript">
+function playPauseMedia() {
+	if (media.paused) {
+		play.setAttribute("data-icon", "u");
+		media.play();
+	} else {
+		play.setAttribute("data-icon", "P");
+		media.pause();
+	}
+}
+			          </code></pre>
+				</section>
+			</section>
+
+			<!-- Slide 8 - Stopping Audio or Video -->
+			<section>
+				<h2>Stopping Audio or Video</h2>
+			
+				<!-- Subslide 8.1 - Adding Event Listeners for Stop -->
+				<section>
+					<h3>Adding Event Listeners for Stop</h3>
+					<pre><code data-trim data-noescape class="hljs javascript">
+stop.addEventListener("click", stopMedia);
+media.addEventListener("ended", stopMedia);
+			          </code></pre>
+				</section>
+			
+				<!-- Subslide 8.2 - Defining stopMedia() Function -->
+				<section>
+					<h3>Defining stopMedia() Function</h3>
+					<pre><code data-trim data-noescape class="hljs javascript">
+function stopMedia() {
+	media.pause();
+	media.currentTime = 0;
+	play.setAttribute("data-icon", "P");
+}
+			          </code></pre>
+				</section>
+			</section>
+			<!-- Subslide 9 - Audio and Video Manipulation with JavaScript -->
+
+			<section>
+
+				<section>
+					<h1>Audio and Video Manipulation with JavaScript</h1>
+				</section>
+
+				<section>
+					<h2>Volume Control</h2>
+					<pre><code data-trim data-noescape class="hljs javascript">		
+const audioElement = document.getElementById('myAudio');
+
+const volumeSlider = document.getElementById('volumeSlider');
+
+volumeSlider.addEventListener('input', function () {
+	audioElement.volume = volumeSlider.value;
+});
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Applying Sound Effects</h2>
+					<pre><code data-trim data-noescape class="hljs javascript">		
+function applyEchoEffect() {
+const audioElement = document.getElementById('myAudio');
+
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+const source = audioCtx.createMediaElementSource(audioElement);
+
+const delayNode = audioCtx.createDelay();
+delayNode.delayTime.value = 0.5; 
+
+source.connect(delayNode);
+delayNode.connect(audioCtx.destination);
+
+audioElement.play();
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Playback Speed Adjustment</h2>
+					<pre><code data-trim data-noescape class="hljs javascript">		
+function changePlaybackSpeed(mediaElement, speed) {
+mediaElement.playbackRate = speed;
+}
+										</code></pre>
+				</section>
+
+				<section>
+					<h2>Adding Text Subtitles and Captions</h2>
+					<pre><code data-trim data-noescape class="hljs javascript">		
+function addSubtitlesToVideo(videoElement, subtitles) {
+videoElement.addEventListener('timeupdate', function() {
+const currentTime = videoElement.currentTime;
+
+for (const subtitle of subtitles) {
+if (currentTime >= subtitle.startTime && currentTime <= subtitle.endTime) { videoElement.setAttribute('aria-label',
+	subtitle.text); break; } else { videoElement.removeAttribute('aria-label'); } } }); }
+					</code></pre>
+				</section>
+
+				<section>
+				<h2>User Interaction</h2>
+				<pre><code data-trim data-noescape class="hljs javascript">		
+function createPlayPauseButton(audioOrVideoElement) {
+const playPauseButton = document.createElement('button');
+playPauseButton.textContent = 'Play';
+
+playPauseButton.addEventListener('click', function() {
+if (audioOrVideoElement.paused) {
+audioOrVideoElement.play();
+playPauseButton.textContent = 'Pause';
+} else {
+audioOrVideoElement.pause();
+playPauseButton.textContent = 'Play';
+}
+});
+
+return playPauseButton;
+}	
+					</code></pre>
+				</section>
+				<section>
+					<h2>Conclusion</h2>
+					<p>
+						JavaScript empowers dynamic audio and video manipulation in web apps. By combining HTML5 audio and video APIs with the
+						Web Audio API, you can create engaging media projects and enhance user experience with unique functionalities.
+					</p>
+				</section>
+
+			</section>
+
+			<!-- Slide 10 - Use Cases -->
+			<section>
+				<h2>Use Cases</h2>
+				<p>APIs for audio and video have versatile applications:</p>
+				<ul>
+					<li>Music and Video Players.</li>
+					<li>Games.</li>
+					<li>Complex Audio Processing and Visualizations.</li>
+					<li>Video Conferencing.</li>
+					<li>And much more.</li>
+				</ul>
+			</section>
+			
+			<!-- Slide 11 - Summary -->
+			<section>
+				<h2>Summary</h2>
+				<p>Audio and video APIs are powerful tools for creating rich media experiences on the Internet.</p>
+			</section>
+			
+			<!-- Slide 12 - Conclusion -->
+			<section>
+				<h2>Conclusion</h2>
+				<p>JavaScript can be used to work with media on the web, including play, pause, and stop functionality.</p>
+				<p>There are many other ways to use these APIs, and we look forward to seeing what you can create!</p>
+			</section>
+			<section>
+				<h2>Thank you for your attention!</h2>
+			</section>
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+	<script src="https://unpkg.com/reveal.js@4.1.0/dist/reveal.js"></script>
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			slideNumber: true,
+			controls: true,
+			progress: true,
+			center: true,
+			// More options like width, height, etc. here
+		});
+	</script>
+</body>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
 </html>
